@@ -1,0 +1,9 @@
+project: savantenvs/edk2-platforms
+target: fuzz_displaylink
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_displaylink/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/out/fuzz_displaylink
+    libfuzzer: true
+    timeout: 5

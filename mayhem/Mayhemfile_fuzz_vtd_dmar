@@ -1,0 +1,9 @@
+project: savantenvs/edk2-platforms
+target: fuzz_vtd_dmar
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_vtd_dmar/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/out/fuzz_vtd_dmar
+    libfuzzer: true
+    timeout: 5

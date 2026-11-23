@@ -1,0 +1,9 @@
+project: savantenvs/edk2-platforms
+target: fuzz_ipmi_fru
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_ipmi_fru/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/out/fuzz_ipmi_fru
+    libfuzzer: true
+    timeout: 5

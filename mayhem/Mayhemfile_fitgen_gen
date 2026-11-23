@@ -1,0 +1,13 @@
+# Silicon/Intel/Tools/FitGen: build the Firmware Interface Table into a flash image. Raw file-input
+# target (plain ASan+UBSan build, no compile-time SanCov; one fresh process per input). @@ is the
+# input FD; FitGen walks its firmware volumes, finds the BiosInfo FFS file by gBiosInfoGuid
+# (BoardModulePkg.dec), validates the microcode / startup ACM / BIOS-module entries it lists and
+# writes the FIT. The output FD goes to /tmp (writable; the image is read-only under Mayhem).
+project: savantenvs/edk2-platforms
+target: fitgen_gen
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fitgen_gen/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/out/fitgen -D @@ /tmp/fitgen.out -I 09D0D15C-E9F0-4DFC-9E0B-39331FCA6685
+    timeout: 5

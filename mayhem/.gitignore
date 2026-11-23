@@ -1,0 +1,3 @@
+# build.sh output (objects, libraries, fuzz/standalone/selftest binaries)
+/build/
+/out/

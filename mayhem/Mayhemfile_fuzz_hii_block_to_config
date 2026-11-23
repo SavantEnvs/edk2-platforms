@@ -1,0 +1,10 @@
+project: savantenvs/edk2-platforms
+target: fuzz_hii_block_to_config
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_hii_block_to_config/testsuite
+cmds:
+  - cmd: /mayhem/mayhem/out/fuzz_hii_block_to_config
+    libfuzzer: true
+    timeout: 5
+    dictionary: /mayhem/mayhem/fuzz_hii_block_to_config/fuzz_hii_block_to_config.dict
